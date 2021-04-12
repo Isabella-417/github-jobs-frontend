@@ -1,14 +1,5 @@
-import React from "react";
-
-export const CardHolder = (data) => {
-  const {
-    type,
-    company,
-    location,
-    created_at,
-    title,
-    company_logo,
-  } = data.data;
+export const CardView = (data) => {
+  const {type,company,location,created_at,title,company_logo} = data.data;
 
   const calculateDays = (date) => {
     const currentDate = new Date();

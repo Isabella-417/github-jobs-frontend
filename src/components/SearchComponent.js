@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 
-export const SearchComponent = () => {
+export const SearchComponent = ({ search, updateJobsList }) => {
+  const [searchedText, setSearchedText] = useState("");
+
   return (
-    <div className="bg-white shadow p-2 flex">
+    <form className="bg-white shadow p-2 flex rounded">
       <span className="w-auto flex justify-end items-center text-gray-500 p-2">
         <i className="material-icons text-3xl">
           <svg
@@ -24,11 +26,17 @@ export const SearchComponent = () => {
       <input
         className="w-full rounded p-2"
         type="text"
-        placeholder="title,companies,expertise, or benefits"
+        placeholder="title of job"
+        value={searchedText}
+        onChange={(e) => setSearchedText(e.target.value)}
       />
-      <button className="bg-blue-400 hover:bg-blue-300 rounded text-white p-2 pl-4 pr-4">
+      <button
+        type="button"
+        className="bg-blue-400 hover:bg-blue-300 rounded text-white p-2 pl-4 pr-4"
+        onClick={() => updateJobsList(searchedText)}
+      >
         <p className="font-semibold text-xs">Search</p>
       </button>
-    </div>
+    </form>
   );
 };
