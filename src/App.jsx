@@ -7,7 +7,12 @@ import {
   searchByFilter,
   getStacks,
 } from "./services/jobs";
-import { ListCardHolder, SearchComponent, FilterComponent } from "./components";
+import {
+  ListCardHolder,
+  SearchComponent,
+  FilterComponent,
+  Pagination,
+} from "./components";
 
 const App = (props) => {
   const [jobs, setJobs] = useState({
@@ -131,6 +136,7 @@ const App = (props) => {
         </aside>
         <section className="md:w-8/12">
           <ListCardHolder cards={jobs} />
+          <Pagination />
         </section>
       </div>
     </main>

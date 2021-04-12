@@ -1,4 +1,4 @@
-import { CardView } from "./CardView";
+import { CardView } from "./CardView.jsx";
 
 export const ListCardHolder = ({ cards }) => {
   const { results } = cards;
