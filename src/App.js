@@ -10,7 +10,10 @@ import {
 import { ListCardHolder, SearchComponent, FilterComponent } from "./components";
 
 const App = (props) => {
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState({
+    info: { count: 0, pages: 0, next: null, prev: null },
+    results: [],
+  });
   const [search, setSearch] = useState("");
   const [jobType, setJobType] = useState({
     title: "Type of Job",
