@@ -16,7 +16,7 @@ import {
 
 const App = (props) => {
   const [jobs, setJobs] = useState({
-    info: { count: 0, pages: 0, next: null, prev: null },
+    info: { currentPage : 1, count: 0, pages: 0, next: null, prev: null },
     results: [],
   });
   const [search, setSearch] = useState("");
@@ -63,6 +63,14 @@ const App = (props) => {
       title: title,
       posibilities: posibilities,
       selected: newSelection,
+    });
+  };
+
+  const changePage = (paramSearch,info) => {
+    const params = paramSearch === null ? "" : paramSearch;
+
+    getJobs(params).then((jobsData) => {
+      setJobs(jobsData);
     });
   };
 
@@ -136,7 +144,7 @@ const App = (props) => {
         </aside>
         <section className="md:w-8/12">
           <ListCardHolder cards={jobs} />
-          <Pagination />
+          <Pagination data={jobs} changePage={changePage} />
         </section>
       </div>
     </main>

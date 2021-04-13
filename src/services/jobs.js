@@ -2,8 +2,8 @@ import axios from "axios";
 
 const URL_BASE = "http://localhost:8000/api/jobs";
 
-export const getJobs = async () => {
-  const response = await axios.get(URL_BASE);
+export const getJobs = async (params = "") => {
+  const response = await axios.get(`${URL_BASE}${params}`);
   return await response.data;
 };
 
